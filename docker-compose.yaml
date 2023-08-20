@@ -1,7 +1,28 @@
 version: '3.8'
 services:
-    api:
-      build: ./api
-      ports:
-        - 3008:3000
-      
+  api:
+    restart: always
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./api:/pixelpalace
+      - /pixelpalace/node_modules
+    ports:
+      - 3008:3000
+    environment:
+      - NODE_ENV=development
+  db:
+    image: postgres
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: seshuk291
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+
+volumes:
+  local_pgdata:
+  api:
