@@ -6,7 +6,6 @@ import { AddressModule } from './address/address.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { ProductModule } from './product/product.module';
 import { CategoryModule } from './category/category.module';
-import { ProductCategoryModule } from './product_category/product_category.module';
 import { CartModule } from './cart/cart.module';
 import { CartItemModule } from './cart_item/cart_item.module';
 import { OrderModule } from './order/order.module';
@@ -33,7 +32,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     InventoryModule,
     ProductModule,
     CategoryModule,
-    ProductCategoryModule,
     CartModule,
     CartItemModule,
     OrderModule,
