@@ -23,7 +23,7 @@ export class UserService {
   }
 
   async findOne(id: number) {
-    return this.usersRepository.findBy({ id });
+    return this.usersRepository.findOneBy({ id });
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
@@ -35,9 +35,11 @@ export class UserService {
       let user = await this.findOne(id);
       if (user) {
         return this.usersRepository.remove(user);
+      } else {
+        return new Error("user not found");
       }
     } catch (error) {
-      console.log("error");
+      console.log("error", error);
       return error;
     }
   }
